@@ -1,1 +1,317 @@
+{% extends "base.html" %}
 
+{% block title %}
+Quiz | Portal Ciudadano
+{% endblock %}
+
+{% block content %}
+
+<section class="contenido">
+
+    <div class="titulo">
+
+        <span class="etiqueta">
+            🧠 PONÉ A PRUEBA LO QUE APRENDISTE
+        </span>
+
+        <h2>
+            Quiz ciudadano
+        </h2>
+
+        <p>
+            Respondé las preguntas y descubrí cuánto aprendiste
+            sobre derechos, ciudadanía y responsabilidades.
+        </p>
+
+    </div>
+
+
+    <div class="quiz-container">
+
+        <!-- PREGUNTA 1 -->
+
+        <div class="pregunta">
+
+            <span class="numero">
+                01
+            </span>
+
+            <h3>
+                ¿Cuál es la norma fundamental de nuestro país?
+            </h3>
+
+            <button onclick="responder(this, false)">
+                El Código Civil
+            </button>
+
+            <button onclick="responder(this, true)">
+                La Constitución Nacional
+            </button>
+
+            <button onclick="responder(this, false)">
+                Una ley provincial
+            </button>
+
+        </div>
+
+
+        <!-- PREGUNTA 2 -->
+
+        <div class="pregunta">
+
+            <span class="numero">
+                02
+            </span>
+
+            <h3>
+                ¿Qué debemos hacer cuando utilizamos información de otras personas en Internet?
+            </h3>
+
+            <button onclick="responder(this, true)">
+                Respetar su privacidad
+            </button>
+
+            <button onclick="responder(this, false)">
+                Compartirla sin preguntar
+            </button>
+
+            <button onclick="responder(this, false)">
+                Publicarla siempre
+            </button>
+
+        </div>
+
+
+        <!-- PREGUNTA 3 -->
+
+        <div class="pregunta">
+
+            <span class="numero">
+                03
+            </span>
+
+            <h3>
+                ¿Qué significa ser un consumidor responsable?
+            </h3>
+
+            <button onclick="responder(this, false)">
+                Comprar sin mirar la información
+            </button>
+
+            <button onclick="responder(this, true)">
+                Conocer nuestros derechos y tomar decisiones informadas
+            </button>
+
+            <button onclick="responder(this, false)">
+                No guardar los comprobantes
+            </button>
+
+        </div>
+
+
+        <!-- PREGUNTA 4 -->
+
+        <div class="pregunta">
+
+            <span class="numero">
+                04
+            </span>
+
+            <h3>
+                ¿Qué relación existe entre derechos y responsabilidades?
+            </h3>
+
+            <button onclick="responder(this, false)">
+                No tienen ninguna relación
+            </button>
+
+            <button onclick="responder(this, true)">
+                Ejercer nuestros derechos también implica respetar los derechos de los demás
+            </button>
+
+            <button onclick="responder(this, false)">
+                Las responsabilidades solamente corresponden a los adultos
+            </button>
+
+        </div>
+
+
+        <!-- PREGUNTA 5 -->
+
+        <div class="pregunta">
+
+            <span class="numero">
+                05
+            </span>
+
+            <h3>
+                ¿Qué podemos hacer antes de compartir una noticia en Internet?
+            </h3>
+
+            <button onclick="responder(this, false)">
+                Compartirla rápidamente
+            </button>
+
+            <button onclick="responder(this, true)">
+                Verificar la información y su origen
+            </button>
+
+            <button onclick="responder(this, false)">
+                Compartirla si tiene muchos comentarios
+            </button>
+
+        </div>
+
+
+        <!-- RESULTADO -->
+
+        <div class="resultado">
+
+            <div class="resultado-icono">
+                🏆
+            </div>
+
+            <h2>
+                ¡Quiz terminado!
+            </h2>
+
+            <p>
+                Tu puntaje es:
+            </p>
+
+            <strong id="puntaje">
+                0 / 5
+            </strong>
+
+            <p id="mensaje">
+                Respondé todas las preguntas para conocer tu resultado.
+            </p>
+
+            <button
+                class="boton"
+                onclick="reiniciarQuiz()"
+            >
+                Reiniciar quiz
+            </button>
+
+        </div>
+
+
+    <div class="volver">
+
+        <a href="/" class="boton">
+            ← Volver al inicio
+        </a>
+
+    </div>
+
+</section>
+
+
+<script>
+
+let puntaje = 0;
+let respondidas = 0;
+
+function responder(boton, correcta) {
+
+    const pregunta = boton.parentElement;
+
+    const botones = pregunta.querySelectorAll("button");
+
+    // Evitar responder dos veces
+    if (pregunta.classList.contains("respondida")) {
+        return;
+    }
+
+    pregunta.classList.add("respondida");
+
+    botones.forEach(function(btn) {
+        btn.disabled = true;
+    });
+
+    if (correcta) {
+
+        boton.classList.add("correcta");
+
+        puntaje++;
+
+    } else {
+
+        boton.classList.add("incorrecta");
+
+    }
+
+    respondidas++;
+
+    actualizarResultado();
+}
+
+
+function actualizarResultado() {
+
+    document.getElementById("puntaje").textContent =
+        puntaje + " / 5";
+
+    if (respondidas === 5) {
+
+        const mensaje =
+            document.getElementById("mensaje");
+
+        if (puntaje === 5) {
+
+            mensaje.textContent =
+                "🌟 ¡Excelente! Conocés muy bien tus derechos.";
+
+        } else if (puntaje >= 3) {
+
+            mensaje.textContent =
+                "👏 ¡Muy bien! Ya tenés una buena base.";
+
+        } else {
+
+            mensaje.textContent =
+                "💡 Podés volver a recorrer el portal y aprender un poco más.";
+
+        }
+
+    }
+
+}
+
+
+function reiniciarQuiz() {
+
+    puntaje = 0;
+    respondidas = 0;
+
+    document
+        .querySelectorAll(".pregunta")
+        .forEach(function(pregunta) {
+
+            pregunta.classList.remove("respondida");
+
+            pregunta
+                .querySelectorAll("button")
+                .forEach(function(btn) {
+
+                    btn.disabled = false;
+
+                    btn.classList.remove("correcta");
+                    btn.classList.remove("incorrecta");
+
+                });
+
+        });
+
+    document.getElementById("puntaje").textContent =
+        "0 / 5";
+
+    document.getElementById("mensaje").textContent =
+        "Respondé todas las preguntas para conocer tu resultado.";
+
+}
+
+</script>
+
+{% endblock %}
