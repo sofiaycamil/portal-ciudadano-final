@@ -1,13 +1,17 @@
 {% extends "base.html" %}
-{% block title %}
-Inicio | Portal Ciudadano
-{% endblock %}
+
+{% block title %}Inicio | Portal Ciudadano{% endblock %}
+
 {% block content %}
+
 <section class="hero">
+
     <div class="hero-text">
+
         <span class="etiqueta">
             ✦ CONSTRUCCIÓN DE CIUDADANÍA
         </span>
+
         <h1>
             Tus derechos.
             <br>
@@ -15,159 +19,240 @@ Inicio | Portal Ciudadano
             <br>
             <span>Tu espacio.</span>
         </h1>
+
         <p>
             Un espacio pensado para conocer nuestros derechos,
             responsabilidades y formas de participar en la sociedad.
         </p>
+
         <div class="hero-buttons">
-            <a href="/constitucion" class="boton">
+
+            <a href="{{ url_for('constitucion') }}" class="boton">
                 Explorar derechos →
             </a>
-            <a href="/quiz" class="boton-secundario">
+
+            <a href="{{ url_for('quiz') }}" class="boton-secundario">
                 Hacer el quiz 🧠
             </a>
+
         </div>
+
     </div>
+
+
     <div class="hero-card">
+
         <div class="hero-icon">
             ⚖️
         </div>
+
         <h2>
             ¿Sabías que...?
         </h2>
+
         <p>
             Conocer nuestros derechos es el primer paso
             para poder ejercerlos y defenderlos.
         </p>
+
         <div class="mini-line"></div>
+
         <span>
             Ciudadanía activa · Derechos · Responsabilidad
         </span>
+
     </div>
+
 </section>
+
+
 <section class="seccion-intro">
+
     <span class="etiqueta">
         EXPLORÁ EL PORTAL
     </span>
+
     <h2>
         Todo lo que necesitás saber,
         <span>en un solo lugar.</span>
     </h2>
+
     <p>
         Elegí una sección y descubrí cómo nuestros derechos
         aparecen en diferentes situaciones de la vida cotidiana.
     </p>
+
 </section>
+
+
 <section class="contenedor">
+
     <!-- CONSTITUCIÓN -->
+
     <div class="tarjeta">
+
         <div class="icono">
             📖
         </div>
+
         <h3>
             Constitución
         </h3>
+
         <p>
             Conocé los derechos y garantías que reconoce
             nuestra Constitución Nacional.
         </p>
-        <a href="/constitucion" class="boton">
+
+        <a href="{{ url_for('constitucion') }}" class="boton">
             Explorar →
         </a>
+
     </div>
+
+
     <!-- VIDA COTIDIANA -->
+
     <div class="tarjeta">
+
         <div class="icono">
             🏫
         </div>
+
         <h3>
             Vida cotidiana
         </h3>
+
         <p>
             Descubrí cómo nuestros derechos aparecen
             en situaciones que vivimos todos los días.
         </p>
-        <a href="/vida-cotidiana" class="boton">
+
+        <a href="{{ url_for('vida_cotidiana') }}" class="boton">
             Explorar →
         </a>
+
     </div>
+
+
     <!-- INTERNET -->
+
     <div class="tarjeta">
+
         <div class="icono">
             📱
         </div>
+
         <h3>
             Internet
         </h3>
+
         <p>
             Aprendé sobre nuestros derechos y responsabilidades
             cuando usamos Internet y las redes.
         </p>
-        <a href="/internet" class="boton">
+
+        <a href="{{ url_for('internet') }}" class="boton">
             Explorar →
         </a>
+
     </div>
+
+
     <!-- CONSUMIDORES -->
+
     <div class="tarjeta">
+
         <div class="icono">
             🛒
         </div>
+
         <h3>
             Consumidores
         </h3>
+
         <p>
             Conocé tus derechos cuando comprás productos
             o contratás servicios.
         </p>
-        <a href="/consumidores" class="boton">
+
+        <a href="{{ url_for('consumidores') }}" class="boton">
             Explorar →
         </a>
+
     </div>
+
+
     <!-- RESPONSABILIDAD -->
+
     <div class="tarjeta">
+
         <div class="icono">
             🤝
         </div>
+
         <h3>
             Responsabilidad
         </h3>
+
         <p>
             Descubrí por qué nuestros derechos también
             implican responsabilidades.
         </p>
-        <a href="/responsabilidad" class="boton">
+
+        <a href="{{ url_for('responsabilidad') }}" class="boton">
             Explorar →
         </a>
+
     </div>
+
+
     <!-- QUIZ -->
+
     <div class="tarjeta tarjeta-quiz">
+
         <div class="icono">
             🧠
         </div>
+
         <h3>
             Quiz ciudadano
         </h3>
+
         <p>
             Poné a prueba cuánto aprendiste sobre
             derechos y ciudadanía.
         </p>
-        <a href="/quiz" class="boton">
+
+        <a href="{{ url_for('quiz') }}" class="boton">
             Jugar ahora →
         </a>
+
     </div>
+
 </section>
+
+
 <section class="frase">
+
     <div>
+
         <span class="etiqueta">
             PARA RECORDAR
         </span>
+
         <h2>
             Ser ciudadano también es
             <span>conocer, participar y respetar.</span>
         </h2>
+
     </div>
+
     <div class="frase-icono">
         💬
     </div>
+
 </section>
+
 {% endblock %}
+
