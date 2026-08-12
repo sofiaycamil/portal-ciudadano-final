@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        Portal Ciudadano
+        {% endblock %}
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+<header class="navbar">
+
+    <a href="{{ url_for('inicio') }}" class="logo">
+        ⚖️ Portal Ciudadano
+    </a>
+
+
+    <nav>
+
+        <a href="{{ url_for('inicio') }}">
+            Inicio
+        </a>
+
+        <a href="{{ url_for('constitucion') }}">
+            Constitución
+        </a>
+
+        <a href="{{ url_for('vida_cotidiana') }}">
+            Vida cotidiana
+        </a>
+
+        <a href="{{ url_for('internet') }}">
+            Internet
+        </a>
+
+        <a href="{{ url_for('consumidores') }}">
+            Consumidores
+        </a>
+
+        <a href="{{ url_for('responsabilidad') }}">
+            Responsabilidad
+        </a>
+
+        <a href="{{ url_for('quiz') }}">
+            Quiz
+        </a>
+
+    </nav>
+
+
+    <button id="modoOscuro" class="dark-button">
+        🌙
+    </button>
+
+</header>
+
+
+<main>
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+
+<footer>
+
+    <h3>
+        Portal Ciudadano
+    </h3>
+
+    <p>
+        Conocé tus derechos. Ejercé tu ciudadanía.
+    </p>
+
+    <p class="footer-small">
+        Proyecto escolar — Construcción de Ciudadanía
+    </p>
+
+</footer>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
