@@ -1,1 +1,705 @@
+/* =========================================
+   PORTAL CIUDADANO
+   Diseño moderno
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f5ff;
+    color: #27243b;
+    line-height: 1.6;
+}
+/* =========================================
+   NAVEGACIÓN
+   ========================================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 5%;
+    box-shadow: 0 5px 25px rgba(60, 40, 120, 0.08);
+}
+.logo {
+    color: #5844a5;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+.navbar nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.navbar nav a {
+    color: #514d67;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 10px;
+    transition: 0.25s ease;
+}
+.navbar nav a:hover {
+    color: #7057d8;
+    background: #eeeaff;
+    transform: translateY(-2px);
+}
+/* =========================================
+   BOTÓN MODO OSCURO
+   ========================================= */
+.dark-button {
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: #eeeaff;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.25s ease;
+}
+.dark-button:hover {
+    transform: rotate(10deg) scale(1.05);
+}
+/* =========================================
+   HERO / PORTADA
+   ========================================= */
+.hero {
+    max-width: 1150px;
+    margin: 55px auto 70px;
+    padding: 65px 55px;
+    border-radius: 35px;
+    background: linear-gradient(
+        135deg,
+        #7357d8,
+        #8c70e5 55%,
+        #58b7df
+    );
+    color: white;
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: 50px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 20px 50px rgba(90, 65, 180, 0.25);
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.10);
+    border-radius: 50%;
+    top: -180px;
+    right: -100px;
+}
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    bottom: -130px;
+    left: -80px;
+}
+.hero-text,
+.hero-card {
+    position: relative;
+    z-index: 2;
+}
+.etiqueta {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #6652bb;
+    background: white;
+    padding: 7px 13px;
+    border-radius: 30px;
+    margin-bottom: 18px;
+}
+.hero h1 {
+    font-size: clamp(45px, 6vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -2px;
+    margin-bottom: 22px;
+}
+.hero h1 span {
+    color: #d9f4ff;
+}
+.hero-text > p {
+    max-width: 580px;
+    font-size: 18px;
+    opacity: 0.93;
+    margin-bottom: 30px;
+}
+/* =========================================
+   BOTONES DEL HERO
+   ========================================= */
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.hero .boton {
+    background: white;
+    color: #5844a5;
+    box-shadow: none;
+}
+.hero .boton:hover {
+    background: #f5f2ff;
+}
+/* =========================================
+   BOTÓN SECUNDARIO
+   ========================================= */
+.boton-secundario {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 11px 21px;
+    border-radius: 13px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.10);
+    font-weight: bold;
+    backdrop-filter: blur(8px);
+    transition: 0.25s ease;
+}
+.boton-secundario:hover {
+    background: rgba(255, 255, 255, 0.20);
+    transform: translateY(-3px);
+}
+/* =========================================
+   TARJETA DESTACADA
+   ========================================= */
+.hero-card {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    padding: 32px;
+    border-radius: 25px;
+    text-align: center;
+}
+.hero-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.20);
+    font-size: 38px;
+}
+.hero-card h2 {
+    margin-bottom: 12px;
+    font-size: 25px;
+}
+.hero-card p {
+    font-size: 15px;
+    opacity: 0.9;
+}
+.mini-line {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 22px 0 15px;
+}
+.hero-card span {
+    font-size: 11px;
+    opacity: 0.75;
+    letter-spacing: 0.5px;
+}
+/* =========================================
+   INTRODUCCIÓN
+   ========================================= */
+.seccion-intro {
+    max-width: 850px;
+    margin: 0 auto 45px;
+    padding: 0 25px;
+    text-align: center;
+}
+.seccion-intro .etiqueta {
+    background: #e9e4ff;
+    color: #6652bb;
+}
+.seccion-intro h2 {
+    font-size: 38px;
+    line-height: 1.15;
+    margin-bottom: 15px;
+    color: #332c50;
+}
+.seccion-intro h2 span {
+    color: #7057d8;
+}
+.seccion-intro p {
+    color: #716d80;
+    font-size: 17px;
+}
+/* =========================================
+   TARJETAS
+   ========================================= */
+.contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 20px 80px;
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(270px, 1fr));
+    gap: 25px;
+}
+.tarjeta {
+    background: white;
+    border-radius: 25px;
+    padding: 32px;
+    border: 1px solid #eeeaff;
+    box-shadow:
+        0 10px 30px rgba(70, 50, 130, 0.07);
+    text-align: center;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+.tarjeta:hover {
+    transform: translateY(-9px);
+    box-shadow:
+        0 18px 40px rgba(70, 50, 130, 0.14);
+}
+.icono {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 21px;
+    background: linear-gradient(
+        135deg,
+        #eee9ff,
+        #e0f5ff
+    );
+    font-size: 35px;
+}
+.tarjeta h3 {
+    color: #4d3d91;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+.tarjeta p {
+    color: #706c7e;
+    font-size: 15.5px;
+    margin-bottom: 23px;
+}
+/* =========================================
+   BOTONES
+   ========================================= */
+.boton {
+    display: inline-block;
+    background: linear-gradient(
+        135deg,
+        #7057d8,
+        #58aeda
+    );
+    color: white;
+    text-decoration: none;
+    padding: 11px 21px;
+    border-radius: 13px;
+    font-weight: bold;
+    box-shadow:
+        0 6px 16px rgba(112, 87, 216, 0.22);
+    transition: 0.25s ease;
+}
+.boton:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 10px 22px rgba(112, 87, 216, 0.30);
+}
+/* =========================================
+   FRASE FINAL
+   ========================================= */
+.frase {
+    max-width: 1050px;
+    margin: 10px auto 80px;
+    padding: 45px;
+    border-radius: 28px;
+    background: #292441;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+.frase .etiqueta {
+    color: #5d4bb0;
+    margin-bottom: 15px;
+}
+.frase h2 {
+    max-width: 650px;
+    font-size: 32px;
+    line-height: 1.2;
+}
+.frase h2 span {
+    color: #a99bea;
+}
+.frase-icono {
+    width: 85px;
+    height: 85px;
+    flex-shrink: 0;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 40px;
+}
+/* =========================================
+   PÁGINAS INTERNAS
+   ========================================= */
+.contenido {
+    max-width: 950px;
+    margin: 60px auto;
+    padding: 0 25px;
+}
+.titulo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.titulo h2 {
+    color: #5c48b8;
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+.titulo p {
+    color: #706c7e;
+    font-size: 18px;
+}
+.contenido .tarjeta {
+    text-align: left;
+    margin-bottom: 25px;
+}
+/* =========================================
+   VOLVER
+   ========================================= */
+.volver {
+    text-align: center;
+    margin: 45px 0;
+}
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+    background: #292441;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+footer h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+footer p {
+    opacity: 0.85;
+}
+.footer-small {
+    font-size: 13px;
+    margin-top: 12px;
+    opacity: 0.55;
+}
+/* =========================================
+   RESPONSIVE / CELULAR
+   ========================================= */
+@media (max-width: 900px) {
+    .navbar {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .navbar nav {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 3px;
+    }
+    .hero {
+        grid-template-columns: 1fr;
+        margin: 30px 18px 60px;
+        padding: 45px 30px;
+    }
+    .hero-card {
+        max-width: 450px;
+        margin: auto;
+    }
+    .frase {
+        margin-left: 18px;
+        margin-right: 18px;
+        padding: 35px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+@media (max-width: 600px) {
+    .logo {
+        font-size: 17px;
+    }
+    .navbar {
+        padding: 12px 15px;
+    }
+    .hero {
+        border-radius: 25px;
+        padding: 40px 25px;
+    }
+    .hero h1 {
+        font-size: 47px;
+    }
+    .hero-text > p {
+        font-size: 16px;
+    }
+    .seccion-intro h2 {
+        font-size: 30px;
+    }
+    .contenedor {
+        grid-template-columns: 1fr;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+    .frase h2 {
+        font-size: 27px;
+    }
+    .frase-icono {
+        width: 65px;
+        height: 65px;
+        font-size: 30px;
+    }
+}
 
+/* =========================================
+   QUIZ INTERACTIVO
+   ========================================= */
+
+.quiz-container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.pregunta {
+    background: white;
+
+    padding: 30px;
+
+    margin-bottom: 25px;
+
+    border-radius: 25px;
+
+    border: 1px solid #eeeaff;
+
+    box-shadow:
+        0 10px 30px rgba(70, 50, 130, 0.07);
+
+    position: relative;
+}
+
+.numero {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 13px;
+
+    background: linear-gradient(
+        135deg,
+        #7057d8,
+        #58aeda
+    );
+
+    color: white;
+
+    font-weight: 800;
+
+    font-size: 13px;
+
+    margin-bottom: 15px;
+}
+
+.pregunta h3 {
+    color: #332c50;
+
+    font-size: 21px;
+
+    margin-bottom: 20px;
+}
+
+
+/* OPCIONES */
+
+.pregunta button {
+    width: 100%;
+
+    display: block;
+
+    text-align: left;
+
+    padding: 14px 17px;
+
+    margin-top: 10px;
+
+    border-radius: 14px;
+
+    border: 1px solid #e5e1f2;
+
+    background: #faf9ff;
+
+    color: #514d67;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.pregunta button:hover:not(:disabled) {
+    background: #eeeaff;
+
+    border-color: #b9aceb;
+
+    transform: translateX(4px);
+}
+
+
+/* RESPUESTA CORRECTA */
+
+.pregunta button.correcta {
+    background: #e5f8ee;
+
+    border-color: #70c99a;
+
+    color: #28784e;
+}
+
+
+/* RESPUESTA INCORRECTA */
+
+.pregunta button.incorrecta {
+    background: #fff0f0;
+
+    border-color: #e29a9a;
+
+    color: #9a3e3e;
+}
+
+
+/* BOTONES DESACTIVADOS */
+
+.pregunta button:disabled {
+    cursor: default;
+}
+
+
+/* RESULTADO */
+
+.resultado {
+    margin-top: 40px;
+
+    padding: 45px 30px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #7057d8,
+        #58aeda
+    );
+
+    color: white;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 35px rgba(80, 60, 160, 0.20);
+}
+
+.resultado-icono {
+    font-size: 48px;
+
+    margin-bottom: 10px;
+}
+
+.resultado h2 {
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+.resultado p {
+    opacity: 0.9;
+
+    margin: 8px 0;
+}
+
+#puntaje {
+    display: block;
+
+    font-size: 42px;
+
+    margin: 5px 0 10px;
+}
+
+
+/* BOTÓN REINICIAR */
+
+.resultado .boton {
+    margin-top: 18px;
+
+    border: none;
+
+    cursor: pointer;
+
+    background: white;
+
+    color: #5844a5;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .pregunta {
+        padding: 23px;
+    }
+
+    .pregunta h3 {
+        font-size: 18px;
+    }
+
+    .pregunta button {
+        font-size: 14px;
+    }
+
+    .resultado {
+        padding: 35px 20px;
+    }
+
+}
